@@ -1,0 +1,64 @@
+/* * CivicCare Custom Styles
+ * * In a standard Tailwind project using a build process (like PostCSS), 
+ * this file would be the entry point to import Tailwind and define custom 
+ * configuration using directives like @tailwind and @layer.
+ * * Since we are using the Tailwind CDN for simplicity, this file mainly 
+ * defines the custom color variables and a few cosmetic overrides.
+ */
+
+/* ==================================== */
+/* 1. Custom Color Variables (Theming) */
+/* ==================================== */
+:root {
+    /* Primary brand colors */
+    --color-primary: #3b82f6; /* Blue-500 */
+    --color-secondary: #10b981; /* Emerald-500 */
+}
+
+/* ============================================= */
+/* 2. Custom Utility Class Mapping (Crucial for CDN) */
+/* These definitions allow us to use cc-blue/cc-emerald 
+       in the HTML without a full Tailwind build setup. */
+/* ============================================= */
+
+/* BLUE */
+.text-cc-blue { color: var(--color-primary); }
+.bg-cc-blue { background-color: var(--color-primary); }
+.border-cc-blue { border-color: var(--color-primary); }
+/* Specific hover/focus classes used in the HTML */
+.bg-cc-blue\/5 { background-color: rgba(59, 130, 246, 0.05); } /* bg-blue-500/5 */
+.bg-cc-blue\/10 { background-color: rgba(59, 130, 246, 0.1); } /* bg-blue-500/10 */
+.border-cc-blue\/20 { border-color: rgba(59, 130, 246, 0.2); } /* border-blue-500/20 */
+
+/* EMERALD */
+.text-cc-emerald { color: var(--color-secondary); }
+.bg-cc-emerald { background-color: var(--color-secondary); }
+.border-cc-emerald { border-color: var(--color-secondary); }
+/* Specific hover/focus classes used in the HTML */
+.bg-cc-emerald\/10 { background-color: rgba(16, 185, 129, 0.1); } /* bg-emerald-500/10 */
+.border-cc-emerald\/20 { border-color: rgba(16, 185, 129, 0.2); } /* border-emerald-500/20 */
+
+
+/* ==================================== */
+/* 3. Global Styles and Aesthetics */
+/* ==================================== */
+
+/* Ensure Inter Font is used */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb; /* A darker shade of blue-600 */
+}
