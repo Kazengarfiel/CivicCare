@@ -4,33 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CivicCare - Empowering Citizens, Transforming Communities</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <style>
-        /* Defining custom colors within the head for CDN use */
         :root {
             --cc-blue: #3b82f6; /* Blue-500 */
             --cc-emerald: #10b981; /* Emerald-500 */
         }
-        /* Customizing Tailwind's color theme for consistency */
-        html {
-            scroll-behavior: smooth;
-        }
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Custom Scrollbar for aesthetics */
+        html { scroll-behavior: smooth; }
+        .font-inter { font-family: 'Inter', sans-serif; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: var(--cc-blue); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
     </style>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -38,11 +28,9 @@
                     colors: {
                         'cc-blue': 'var(--cc-blue)',
                         'cc-emerald': 'var(--cc-emerald)',
-                        'cc-blue-dark': '#2563eb', /* For hover states */
+                        'cc-blue-dark': '#2563eb',
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                 },
             },
         }
@@ -50,6 +38,7 @@
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
 
+    <!-- NAV / HEADER -->
     <header class="sticky top-0 z-50 bg-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
@@ -68,6 +57,12 @@
                     <a href="#initiatives" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Initiatives</a>
                     <a href="#contact" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Contact</a>
                 </nav>
+
+                <div class="hidden md:flex items-center space-x-3">
+                    <button id="login-btn" class="px-4 py-2 rounded-lg text-sm font-medium bg-white border border-cc-blue text-cc-blue hover:bg-cc-blue hover:text-white transition">Login</button>
+                    <button id="signup-btn" class="px-4 py-2 rounded-lg text-sm font-medium bg-cc-emerald text-white hover:bg-emerald-600 transition">Sign Up</button>
+                    <button id="logout-btn" class="px-4 py-2 rounded-lg text-sm font-medium bg-red-500 text-white hover:bg-red-600 transition hidden">Logout</button>
+                </div>
 
                 <div class="-mr-2 -my-2 md:hidden">
                     <button type="button" id="mobile-menu-button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cc-blue" aria-expanded="false">
@@ -88,12 +83,18 @@
                     <a href="#initiatives" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Initiatives</a>
                     <a href="#impact" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Impact</a>
                     <a href="#contact" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Contact</a>
+                    <div class="pt-4">
+                        <button id="mobile-login" class="w-full py-2 mb-2 rounded-lg border border-cc-blue text-cc-blue">Login</button>
+                        <button id="mobile-signup" class="w-full py-2 rounded-lg bg-cc-emerald text-white">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- MAIN -->
     <main>
+        <!-- HOME HERO -->
         <section id="home" class="relative pt-20 pb-24 md:pt-32 md:pb-40 bg-blue-50 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight mb-6">
@@ -129,6 +130,7 @@
             </div>
         </section>
 
+        <!-- ABOUT -->
         <section id="about" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
@@ -164,6 +166,7 @@
 
         <hr class="border-gray-200">
 
+        <!-- REPORT FORM -->
         <section id="report" class="py-20 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -206,7 +209,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-xl font-bold text-white bg-cc-emerald hover:bg-emerald-600 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cc-emerald transition duration-200 ease-in-out transform hover:scale-[1.01]">
+                            <button id="submit-issue" type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-xl font-bold text-white bg-cc-emerald hover:bg-emerald-600 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cc-emerald transition duration-200 ease-in-out transform hover:scale-[1.01]">
                                 Submit Issue Report
                             </button>
                         </div>
@@ -221,6 +224,7 @@
 
         <hr class="border-gray-200">
 
+        <!-- VOLUNTEER -->
         <section id="volunteer" class="py-20 bg-gray-50">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -247,7 +251,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-xl text-xl font-bold text-white bg-cc-blue hover:bg-cc-blue-dark focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cc-blue transition duration-200 ease-in-out transform hover:scale-[1.01]">
+                            <button id="submit-volunteer" type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-xl text-xl font-bold text-white bg-cc-blue hover:bg-cc-blue-dark focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cc-blue transition duration-200 ease-in-out transform hover:scale-[1.01]">
                                 Register My Interest
                             </button>
                         </div>
@@ -262,6 +266,7 @@
 
         <hr class="border-gray-200">
 
+        <!-- INITIATIVES -->
         <section id="initiatives" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
@@ -326,6 +331,7 @@
 
         <hr class="border-gray-200">
 
+        <!-- IMPACT -->
         <section id="impact" class="py-20 bg-blue-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
@@ -361,6 +367,7 @@
 
         <hr class="border-gray-200">
 
+        <!-- CONTACT -->
         <section id="contact" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
@@ -385,7 +392,7 @@
                                 <textarea id="c-message" name="c-message" rows="5" required class="mt-1 block w-full border border-gray-300 rounded-xl shadow-md py-3 px-4 focus:ring-cc-emerald focus:border-cc-emerald"></textarea>
                             </div>
                             <div>
-                                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-cc-blue hover:bg-cc-blue-dark transition duration-200">
+                                <button id="send-contact" type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-cc-blue hover:bg-cc-blue-dark transition duration-200">
                                     Send Message
                                 </button>
                             </div>
@@ -411,8 +418,8 @@
                         <div class="bg-white p-6 rounded-2xl shadow-xl border-l-8 border-cc-blue">
                             <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-2 text-cc-blue"></i> Newsletter</h3>
                             <form id="newsletter-form" class="space-y-3">
-                                <input type="email" placeholder="Your Email Address" required class="w-full py-3 px-4 border border-gray-300 rounded-lg focus:ring-cc-emerald focus:border-cc-emerald transition">
-                                <button type="submit" class="w-full py-3 px-4 bg-cc-emerald text-white font-semibold rounded-lg hover:bg-emerald-600 transition duration-150">
+                                <input type="email" id="newsletter-email" placeholder="Your Email Address" required class="w-full py-3 px-4 border border-gray-300 rounded-lg focus:ring-cc-emerald focus:border-cc-emerald transition">
+                                <button id="subscribe-newsletter" type="submit" class="w-full py-3 px-4 bg-cc-emerald text-white font-semibold rounded-lg hover:bg-emerald-600 transition duration-150">
                                     Subscribe Now
                                 </button>
                             </form>
@@ -426,6 +433,7 @@
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-gray-900 text-white mt-10">
         <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center items-center mb-4">
@@ -437,17 +445,112 @@
         </div>
     </footer>
 
+    <!-- AUTH & MODALS: Login / Signup / Profile -->
+    <div id="auth-modal" class="fixed inset-0 z-60 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="auth-title" class="text-xl font-bold">Login to CivicCare</h3>
+                <button id="auth-close" class="text-gray-500 hover:text-gray-900"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+
+            <div id="auth-forms">
+                <!-- Login Form -->
+                <form id="login-form" class="space-y-4">
+                    <div>
+                        <label for="login-email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input id="login-email" type="email" required class="mt-1 block w-full border border-gray-300 rounded-lg py-2 px-3 focus:ring-cc-blue focus:border-cc-blue">
+                    </div>
+                    <div>
+                        <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="login-password" type="password" required class="mt-1 block w-full border border-gray-300 rounded-lg py-2 px-3 focus:ring-cc-blue focus:border-cc-blue">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="inline-flex items-center"><input id="remember" type="checkbox" class="mr-2"> Remember me</label>
+                        <button type="button" id="switch-to-signup" class="text-sm text-cc-emerald hover:underline">Create account</button>
+                    </div>
+                    <div>
+                        <button id="auth-login-btn" type="submit" class="w-full py-2 bg-cc-blue text-white rounded-lg font-semibold">Login</button>
+                    </div>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="space-y-4 hidden">
+                    <div>
+                        <label for="signup-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input id="signup-name" type="text" required class="mt-1 block w-full border border-gray-300 rounded-lg py-2 px-3 focus:ring-cc-emerald focus:border-cc-emerald">
+                    </div>
+                    <div>
+                        <label for="signup-email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input id="signup-email" type="email" required class="mt-1 block w-full border border-gray-300 rounded-lg py-2 px-3 focus:ring-cc-emerald focus:border-cc-emerald">
+                    </div>
+                    <div>
+                        <label for="signup-password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="signup-password" type="password" required class="mt-1 block w-full border border-gray-300 rounded-lg py-2 px-3 focus:ring-cc-emerald focus:border-cc-emerald">
+                    </div>
+                    <div>
+                        <button id="auth-signup-btn" type="submit" class="w-full py-2 bg-cc-emerald text-white rounded-lg font-semibold">Create account</button>
+                    </div>
+                    <div class="text-center text-sm">
+                        <button type="button" id="switch-to-login" class="text-cc-blue hover:underline">Already have an account? Login</button>
+                    </div>
+                </form>
+
+                <!-- Profile View After Login -->
+                <div id="profile-view" class="hidden">
+                    <p class="font-medium">Signed in as <span id="profile-email" class="font-bold"></span></p>
+                    <div class="mt-4">
+                        <button id="go-to-dashboard" class="w-full py-2 mb-2 bg-cc-blue text-white rounded-lg">Dashboard</button>
+                        <button id="auth-logout-btn" class="w-full py-2 bg-red-500 text-white rounded-lg">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs (placeholders) -->
+    <!--
+        INSTRUCTIONS:
+        1) Create a Firebase project at https://console.firebase.google.com/
+        2) Enable Email/Password auth in Authentication > Sign-in method
+        3) Create Firestore database (test mode or locked rules while developing)
+        4) Replace the firebaseConfig object below with your project's config
+        5) Secure rules before production and remove test-mode settings
+    -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
     <script>
-        // --- 1. Setup and Initialization ---
+        // ====== Firebase Config - REPLACE with your project's values ======
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "SENDER_ID",
+            appId: "APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // ====== DOM Helpers ======
+        function $(sel) { return document.querySelector(sel); }
+        function $all(sel) { return document.querySelectorAll(sel); }
+
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('current-year').textContent = new Date().getFullYear();
             lucide.createIcons();
             setupMobileMenu();
             setupFormHandlers();
             setupIntersectionObserver();
+            setupAuthUI();
+            checkAuthState();
         });
 
-        // --- 2. Mobile Menu Toggle ---
+        // Mobile menu
         function setupMobileMenu() {
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -464,9 +567,13 @@
                     menuButton.setAttribute('aria-expanded', 'false');
                 });
             });
+
+            // mobile auth buttons
+            document.getElementById('mobile-login').addEventListener('click', () => openAuthModal('login'));
+            document.getElementById('mobile-signup').addEventListener('click', () => openAuthModal('signup'));
         }
 
-        // --- 3. Animated Counters ---
+        // Animated Counters
         function animateCounter(element, target) {
             let start = 0;
             const duration = 2000;
@@ -475,9 +582,8 @@
             const updateCount = (timestamp) => {
                 const elapsed = timestamp - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                const currentValue = Math.floor(progress * target); 
+                const currentValue = Math.floor(progress * target);
                 element.textContent = currentValue.toLocaleString();
-
                 if (progress < 1) {
                     requestAnimationFrame(updateCount);
                 } else {
@@ -489,7 +595,6 @@
 
         function setupIntersectionObserver() {
             const counterElements = document.querySelectorAll('[data-counter-target]');
-            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -504,43 +609,180 @@
             counterElements.forEach(el => observer.observe(el));
         }
 
-
-        // --- 4. Form Handlers ---
+        // Forms and Firestore integration
         function setupFormHandlers() {
-            // Report Issue Form
-            document.getElementById('issue-form').addEventListener('submit', function (e) {
+            // Report Issue Form -> save to Firestore 'issues'
+            document.getElementById('issue-form').addEventListener('submit', async function (e) {
                 e.preventDefault();
-                this.reset();
-                const confirmation = document.getElementById('report-confirmation');
-                confirmation.classList.remove('hidden');
-                setTimeout(() => confirmation.classList.add('hidden'), 6000);
+                const category = document.getElementById('category').value;
+                const location = document.getElementById('location').value.trim();
+                const description = document.getElementById('description').value.trim();
+                const fileInput = document.getElementById('file-upload');
+
+                if (!category || !location || !description) return alert('Please fill required fields.');
+
+                try {
+                    const docRef = await db.collection('issues').add({
+                        category, location, description, status: 'submitted', createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    this.reset();
+                    showTemporary('#report-confirmation');
+                } catch (err) {
+                    console.error(err); alert('Failed to submit issue.');
+                }
             });
 
-            // Volunteer Form
-            document.getElementById('volunteer-form').addEventListener('submit', function (e) {
+            // Volunteer Form -> save to Firestore 'volunteers'
+            document.getElementById('volunteer-form').addEventListener('submit', async function (e) {
                 e.preventDefault();
-                this.reset();
-                const confirmation = document.getElementById('volunteer-confirmation');
-                confirmation.classList.remove('hidden');
-                setTimeout(() => confirmation.classList.add('hidden'), 6000);
+                const name = document.getElementById('v-name').value.trim();
+                const email = document.getElementById('v-email').value.trim();
+                const skills = document.getElementById('v-skills').value.trim();
+                if (!name || !email) return alert('Please enter name and email.');
+
+                try {
+                    await db.collection('volunteers').add({ name, email, skills, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+                    this.reset();
+                    showTemporary('#volunteer-confirmation');
+                } catch (err) {
+                    console.error(err); alert('Failed to register volunteer.');
+                }
             });
 
-            // Contact Form
-            document.getElementById('contact-form').addEventListener('submit', function (e) {
+            // Contact Form -> save to Firestore 'contacts'
+            document.getElementById('contact-form').addEventListener('submit', async function (e) {
                 e.preventDefault();
-                alert('Message sent! We appreciate your feedback.');
-                this.reset();
+                const name = document.getElementById('c-name').value.trim();
+                const email = document.getElementById('c-email').value.trim();
+                const message = document.getElementById('c-message').value.trim();
+                if (!name || !email || !message) return alert('Please fill all fields.');
+                try {
+                    await db.collection('contacts').add({ name, email, message, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+                    alert('Message sent! We appreciate your feedback.');
+                    this.reset();
+                } catch (err) { console.error(err); alert('Failed to send message.'); }
             });
 
-            // Newsletter Form
-            document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            // Newsletter -> save to Firestore 'newsletter'
+            document.getElementById('newsletter-form').addEventListener('submit', async function (e) {
                 e.preventDefault();
-                this.reset();
-                const confirmation = document.getElementById('newsletter-confirmation');
-                confirmation.classList.remove('hidden');
-                setTimeout(() => confirmation.classList.add('hidden'), 4000);
+                const email = document.getElementById('newsletter-email').value.trim();
+                if (!email) return alert('Enter email');
+                try {
+                    await db.collection('newsletter').add({ email, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+                    this.reset();
+                    showTemporary('#newsletter-confirmation', 4000);
+                } catch (err) { console.error(err); alert('Failed to subscribe.'); }
             });
         }
+
+        function showTemporary(selector, ms = 6000) {
+            const el = document.querySelector(selector);
+            if (!el) return;
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('hidden'), ms);
+        }
+
+        // ====== Auth UI and Handlers ======
+        function setupAuthUI() {
+            const authModal = document.getElementById('auth-modal');
+            const loginBtn = document.getElementById('login-btn');
+            const signupBtn = document.getElementById('signup-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const mobileLogin = document.getElementById('mobile-login');
+            const mobileSignup = document.getElementById('mobile-signup');
+
+            loginBtn.addEventListener('click', () => openAuthModal('login'));
+            signupBtn.addEventListener('click', () => openAuthModal('signup'));
+            document.getElementById('auth-close').addEventListener('click', closeAuthModal);
+            document.getElementById('switch-to-signup').addEventListener('click', () => toggleAuthForms('signup'));
+            document.getElementById('switch-to-login').addEventListener('click', () => toggleAuthForms('login'));
+
+            document.getElementById('auth-login-btn').addEventListener('click', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value.trim();
+                const password = document.getElementById('login-password').value;
+                try {
+                    await auth.signInWithEmailAndPassword(email, password);
+                    closeAuthModal();
+                } catch (err) { console.error(err); alert(err.message || 'Login failed'); }
+            });
+
+            document.getElementById('auth-signup-btn').addEventListener('click', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('signup-name').value.trim();
+                const email = document.getElementById('signup-email').value.trim();
+                const password = document.getElementById('signup-password').value;
+                try {
+                    const userCred = await auth.createUserWithEmailAndPassword(email, password);
+                    const uid = userCred.user.uid;
+                    // Save profile in Firestore
+                    await db.collection('users').doc(uid).set({ name, email, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+                    closeAuthModal();
+                } catch (err) { console.error(err); alert(err.message || 'Signup failed'); }
+            });
+
+            document.getElementById('auth-logout-btn').addEventListener('click', async () => {
+                try { await auth.signOut(); closeAuthModal(); } catch (err) { console.error(err); }
+            });
+
+            // mobile auth
+            if (mobileLogin) mobileLogin.addEventListener('click', () => openAuthModal('login'));
+            if (mobileSignup) mobileSignup.addEventListener('click', () => openAuthModal('signup'));
+
+            // logout top
+            logoutBtn.addEventListener('click', async () => { await auth.signOut(); });
+        }
+
+        function openAuthModal(mode = 'login') {
+            const modal = document.getElementById('auth-modal');
+            modal.classList.remove('hidden');
+            toggleAuthForms(mode);
+        }
+        function closeAuthModal() { document.getElementById('auth-modal').classList.add('hidden'); }
+
+        function toggleAuthForms(mode = 'login') {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const profileView = document.getElementById('profile-view');
+            const authTitle = document.getElementById('auth-title');
+            if (mode === 'login') { loginForm.classList.remove('hidden'); signupForm.classList.add('hidden'); profileView.classList.add('hidden'); authTitle.textContent = 'Login to CivicCare'; }
+            else if (mode === 'signup') { loginForm.classList.add('hidden'); signupForm.classList.remove('hidden'); profileView.classList.add('hidden'); authTitle.textContent = 'Create your account'; }
+            else { loginForm.classList.add('hidden'); signupForm.classList.add('hidden'); profileView.classList.remove('hidden'); authTitle.textContent = 'Your Profile'; }
+        }
+
+        // Monitor auth state to show/hide UI
+        function checkAuthState() {
+            auth.onAuthStateChanged(user => {
+                const loginBtn = document.getElementById('login-btn');
+                const signupBtn = document.getElementById('signup-btn');
+                const logoutBtn = document.getElementById('logout-btn');
+                const profileEmail = document.getElementById('profile-email');
+
+                if (user) {
+                    // user signed in
+                    loginBtn.classList.add('hidden'); signupBtn.classList.add('hidden'); logoutBtn.classList.remove('hidden');
+                    // update profile view
+                    profileEmail.textContent = user.email;
+                } else {
+                    loginBtn.classList.remove('hidden'); signupBtn.classList.remove('hidden'); logoutBtn.classList.add('hidden');
+                }
+            });
+        }
+
     </script>
+
+    <script>
+        // Small accessibility & UX improvements
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') document.getElementById('auth-modal')?.classList.add('hidden');
+        });
+
+        // Hook up header buttons in case mobile toggles
+        document.getElementById('signup-btn').addEventListener('click', (ev) => { ev.preventDefault(); openAuthModal('signup'); });
+        document.getElementById('login-btn').addEventListener('click', (ev) => { ev.preventDefault(); openAuthModal('login'); });
+
+    </script>
+
 </body>
 </html>
