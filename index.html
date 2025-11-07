@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CivicCare - Empowering Citizens, Transforming Communities</title>
+    <title>CivicCare</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -52,8 +52,6 @@
                 <nav class="hidden md:flex space-x-6 lg:space-x-8">
                     <a href="#home" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Home</a>
                     <a href="#about" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">About</a>
-                    <a href="#report" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Report Issue</a>
-                    <a href="#volunteer" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Volunteer</a>
                     <a href="#initiatives" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Initiatives</a>
                     <a href="#contact" class="text-sm lg:text-base font-medium text-gray-600 hover:text-cc-blue transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">Contact</a>
                 </nav>
@@ -78,8 +76,6 @@
                 <div class="py-6 px-5 space-y-4">
                     <a href="#home" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Home</a>
                     <a href="#about" class="block text-base font-medium text-gray-900 hover:text-cc-blue">About</a>
-                    <a href="#report" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Report Issue</a>
-                    <a href="#volunteer" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Volunteer</a>
                     <a href="#initiatives" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Initiatives</a>
                     <a href="#impact" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Impact</a>
                     <a href="#contact" class="block text-base font-medium text-gray-900 hover:text-cc-blue">Contact</a>
@@ -103,30 +99,6 @@
                 <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-600">
                     CivicCare is your platform to proactively engage in shaping a better neighborhood. Report local issues, join community projects, and track the progress of change.
                 </p>
-
-                <div class="mt-10 flex justify-center space-x-4">
-                    <a href="#report" class="inline-flex items-center px-8 py-3 border border-transparent text-lg font-semibold rounded-xl shadow-lg text-white bg-cc-blue hover:bg-cc-blue-dark transition duration-300 ease-in-out transform hover:scale-[1.02] ring-2 ring-offset-2 ring-cc-blue">
-                        <i data-lucide="alert-triangle" class="w-6 h-6 mr-2"></i> Report an Issue
-                    </a>
-                    <a href="#volunteer" class="inline-flex items-center px-8 py-3 border-2 border-cc-emerald text-lg font-semibold rounded-xl text-cc-emerald bg-white hover:bg-emerald-50 transition duration-300 ease-in-out transform hover:scale-[1.02] shadow-lg">
-                        <i data-lucide="users" class="w-6 h-6 mr-2"></i> Join the Change
-                    </a>
-                </div>
-
-                <div class="mt-20 pt-10 border-t-2 border-gray-200 grid grid-cols-3 gap-6 text-cc-blue">
-                    <div>
-                        <div class="text-5xl lg:text-6xl font-extrabold" data-counter-target="1540">0</div>
-                        <p class="mt-3 text-lg font-medium text-gray-600">Issues Resolved</p>
-                    </div>
-                    <div>
-                        <div class="text-5xl lg:text-6xl font-extrabold" data-counter-target="520">0</div>
-                        <p class="mt-3 text-lg font-medium text-gray-600">Active Volunteers</p>
-                    </div>
-                    <div>
-                        <div class="text-5xl lg:text-6xl font-extrabold" data-counter-target="78">0</div>
-                        <p class="mt-3 text-lg font-medium text-gray-600">Projects Completed</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -165,107 +137,7 @@
         </section>
 
         <hr class="border-gray-200">
-
-        <!-- REPORT FORM -->
-        <section id="report" class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900">Report a Local Issue</h2>
-                    <p class="mt-2 text-xl text-gray-500">Use the form below to alert authorities and track resolution status.</p>
-                </div>
-
-                <div class="bg-gray-50 p-8 rounded-3xl shadow-2xl border border-gray-200">
-                    <form id="issue-form" class="space-y-6">
-                        <div>
-                            <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Issue Category <span class="text-red-500">*</span></label>
-                            <select id="category" name="category" required class="mt-1 block w-full pl-4 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-cc-blue focus:border-cc-blue sm:text-lg rounded-xl shadow-inner transition">
-                                <option value="">Select Category</option>
-                                <option value="pothole">Pothole/Road Damage</option>
-                                <option value="lighting">Street Lighting Failure</option>
-                                <option value="trash">Illegal Dumping/Trash</option>
-                                <option value="other">Other Infrastructure Issue</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location <span class="text-red-500">*</span></label>
-                            <input type="text" name="location" id="location" required placeholder="Exact Address or Nearest Intersection" class="mt-1 block w-full border border-gray-300 rounded-xl shadow-inner py-3 px-4 text-lg focus:ring-cc-blue focus:border-cc-blue transition">
-                        </div>
-
-                        <div>
-                            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Detailed Description <span class="text-red-500">*</span></label>
-                            <textarea id="description" name="description" rows="4" required placeholder="Please provide details on severity and duration..." class="mt-1 block w-full border border-gray-300 rounded-xl shadow-inner py-3 px-4 text-base focus:ring-cc-blue focus:border-cc-blue transition"></textarea>
-                        </div>
-                        
-                        <div>
-                            <label for="photo" class="block text-sm font-medium text-gray-700 mb-1">Add Photo (Optional)</label>
-                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-xl hover:border-cc-emerald transition cursor-pointer">
-                                <div class="text-center">
-                                    <i data-lucide="camera" class="mx-auto h-10 w-10 text-gray-400"></i>
-                                    <p class="mt-2 text-sm text-gray-600">Click to upload photo</p>
-                                </div>
-                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                            </div>
-                        </div>
-
-                        <div>
-                            <button id="submit-issue" type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-lg text-xl font-bold text-white bg-cc-emerald hover:bg-emerald-600 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cc-emerald transition duration-200 ease-in-out transform hover:scale-[1.01]">
-                                Submit Issue Report
-                            </button>
-                        </div>
-                    </form>
-                    <div id="report-confirmation" class="mt-6 p-4 bg-emerald-100 border-l-8 border-cc-emerald text-emerald-800 rounded-lg hidden" role="alert">
-                        <p class="font-bold text-lg">✅ Report Submitted Successfully!</p>
-                        <p class="text-base">Thank you for taking action. We will notify you when the status changes.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-gray-200">
-
-        <!-- VOLUNTEER -->
-        <section id="volunteer" class="py-20 bg-gray-50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900">Lend Your Skills</h2>
-                    <p class="mt-2 text-xl text-gray-500">Join a community project near you. Volunteer time or expertise.</p>
-                </div>
-
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-cc-blue">
-                    <form id="volunteer-form" class="space-y-6">
-                        <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6">
-                            <div>
-                                <label for="v-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input type="text" name="v-name" id="v-name" required class="mt-1 block w-full border border-gray-300 rounded-xl shadow-sm py-3 px-4 focus:ring-cc-emerald focus:border-cc-emerald">
-                            </div>
-                            <div>
-                                <label for="v-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                <input type="email" name="v-email" id="v-email" required class="mt-1 block w-full border border-gray-300 rounded-xl shadow-sm py-3 px-4 focus:ring-cc-emerald focus:border-cc-emerald">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="v-skills" class="block text-sm font-medium text-gray-700 mb-1">Skills & Interests (Optional)</label>
-                            <textarea id="v-skills" name="v-skills" rows="3" placeholder="e.g., Carpentry, Web Design, Data Entry, Public Speaking..." class="mt-1 block w-full border border-gray-300 rounded-xl shadow-sm py-3 px-4 focus:ring-cc-emerald focus:border-cc-emerald"></textarea>
-                        </div>
-
-                        <div>
-                            <button id="submit-volunteer" type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-xl text-xl font-bold text-white bg-cc-blue hover:bg-cc-blue-dark focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cc-blue transition duration-200 ease-in-out transform hover:scale-[1.01]">
-                                Register My Interest
-                            </button>
-                        </div>
-                    </form>
-                    <div id="volunteer-confirmation" class="mt-6 p-4 bg-blue-100 border-l-8 border-cc-blue text-cc-blue-dark rounded-lg hidden" role="alert">
-                        <p class="font-bold text-lg">👍 Volunteer Profile Created!</p>
-                        <p class="text-base">Thanks for stepping up. We'll match you with a suitable project soon.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-gray-200">
-
+        
         <!-- INITIATIVES -->
         <section id="initiatives" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -494,15 +366,6 @@
                         <button type="button" id="switch-to-login" class="text-cc-blue hover:underline">Already have an account? Login</button>
                     </div>
                 </form>
-
-                <!-- Profile View After Login -->
-                <div id="profile-view" class="hidden">
-                    <p class="font-medium">Signed in as <span id="profile-email" class="font-bold"></span></p>
-                    <div class="mt-4">
-                        <button id="go-to-dashboard" class="w-full py-2 mb-2 bg-cc-blue text-white rounded-lg">Dashboard</button>
-                        <button id="auth-logout-btn" class="w-full py-2 bg-red-500 text-white rounded-lg">Logout</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
